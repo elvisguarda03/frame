@@ -1,6 +1,8 @@
 class NegociacaoController {
     constructor() {
         //Mantendo a associação com o document(contexto de execução)
+        //Recebendo a referência de uma nova function, que passa a ter o objeto document como this.
+        //Ou seja, a função bind presente em todas as functions, permite indicar qual será o valor de this quando ela for executada.
         let $ = document.querySelector.bind(document);
 
         this._inputData = $('#data');
