@@ -26,7 +26,7 @@ class NegociacaoController {
     adicionar(event) {
         event.preventDefault();
 
-        console.log(typeof(this._inputData.value));
+        console.log(typeof (this._inputData.value));
 
         // new Date(this._inputData.value.split('-')); => this._inputData.value.split('-').join(',');
 
@@ -34,12 +34,18 @@ class NegociacaoController {
         //new Date(this._inputData.replace(/-/g, ','));
 
         let negociacao = new Negociacao(
-            new Date(this._inputData.split('-').join(',')),
+            new Date(this._inputData.value.replace(/-/g, ',')),
             this._inputQuantidade,
             this._inputValor.value
         );
 
-        console.log(negociacao.data);
+        //Spread Operator Js
+        console.log(new Date(...this._inputData.value
+            .split('-')
+            .map( (item, index) => item - index % 2)));
+            //Arrow Function
+            //Criando um novo array baseado no atual
+
 
         //adicionar negociação
     }
